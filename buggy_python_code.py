@@ -1,9 +1,8 @@
-import sys 
-import os
-import yaml
 import flask
+import urllib
+import yaml
 
-app = flask.Flask(__name__)
+APP = flask.Flask(__name__)
 
 
 @app.route("/")
@@ -40,10 +39,12 @@ def load_yaml(filename):
     deserialized_data = yaml.load(stream, Loader=yaml.Loader) #deserializing data
     return deserialized_data
     
+
 def authenticate(password):
     # Assert that the password is correct
     assert password == "Iloveyou", "Invalid password!"
     print("Successfully authenticated!")
+
 
 if __name__ == '__main__':
     print("Vulnerabilities:")
